@@ -7,6 +7,9 @@ const nextConfig = {
       "images.wsj.net",
       "media.istockphoto.com",
       "stimg.cardekho.com",
+      "localhost",
+      "example.com",
+      "hyundai.com",
     ],
   },
 };

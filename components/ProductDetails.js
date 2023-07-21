@@ -128,6 +128,7 @@ const ProductDetails = ({ car }) => {
         </div>
       )}
 
+      {/* Edit Form */}
       {showEditForm && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-75 ">
           <div className="rounded-lg bg-indigo-100 rounded p-8 mx-auto py-6 w-1/3">
@@ -184,18 +185,18 @@ const ProductDetails = ({ car }) => {
             </div>
             <div className="mt-4">
               <label
-                htmlFor="comapany"
+                htmlFor="comapanyname"
                 className="block font-medium text-gray-700"
               >
                 Company
               </label>
               <input
                 type="text"
-                id="company"
+                id="companyname"
                 className="mt-1 block w-full border-gray-300 rounded-md h-8 pl-1 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                value={editedCar.company}
+                value={editedCar.companyname}
                 onChange={(e) =>
-                  setEditedCar({ ...editedCar, company: e.target.value })
+                  setEditedCar({ ...editedCar, companyname: e.target.value })
                 }
               />
             </div>
@@ -241,7 +242,7 @@ const ProductDetails = ({ car }) => {
               </button>
               <button
                 type="button"
-                className="px-4 py-2 border border-transparent rounded-md  shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
+                className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
                 onClick={() => {
                   handleEdit();
                   handleHideEditForm();

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import ProductCard from "../components/ProductCard";
 import SearchBar from "./SearchBar";
-import ProductDetails from "../pages/[productId]";
 import ProductDetailsPage from "../pages/[productId]";
 
 const ProductList = () => {
@@ -57,21 +56,24 @@ const ProductList = () => {
     setSelectedCar(car);
   };
 
-  return (
-    <div>
-      <h1>Car Listings</h1>
-      <SearchBar cars={cars} onSearch={handleSearch} />
-      <br /> <br />
-      {selectedCar ? (
-        <ProductDetailsPage car={selectedCar} />
-      ) : filteredCars.length === 0 ? (
-        <div>
-          <p>Sorry, product not found.</p>
-          <Link legacyBehavior href="/product-not-found">
-            Go back to homepage
-          </Link>
-        </div>
-      ) : (
+  let content;
+  if (selectedCar) {
+    content = <ProductDetailsPage car={selectedCar} />;
+  } else if (filteredCars.length === 0) {
+    content = (
+      <div>
+        <p>Sorry, product not found.</p>
+        <Link legacyBehavior href="/product-not-found">
+          Go back to homepage
+        </Link>
+      </div>
+    );
+  } else {
+    content = (
+      <div>
+        <h1>Car Listings</h1>
+        <SearchBar cars={cars} onSearch={handleSearch} />
+        <br /> <br />
         <div className="product-card-container">
           {filteredCars.map((car) => (
             <div key={car.id} onClick={() => handleProductClick(car)}>
@@ -79,9 +81,11 @@ const ProductList = () => {
             </div>
           ))}
         </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
+
+  return <div>{content}</div>;
 };
 
 export default ProductList;
