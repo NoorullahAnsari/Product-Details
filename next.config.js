@@ -12,6 +12,8 @@ const nextConfig = {
       "hyundai.com",
       "jaguar.com",
       "images.pexels.com",
+      "rangerover.com",
+      "www.pexels.com",
     ],
   },
 };

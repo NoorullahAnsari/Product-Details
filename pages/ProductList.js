@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ProductCard from "../components/ProductCard";
-import SearchBar from "./SearchBar";
-import ProductDetailsPage from "../pages/[productId]";
+import SearchBar from "../components/SearchBar";
+import ProductDetailsPage from "./[productId]";
 
 const ProductList = () => {
   const [cars, setCars] = useState([]);
@@ -73,9 +73,7 @@ const ProductList = () => {
   } else {
     content = (
       <div>
-        <h1>Car Listings</h1>
         <SearchBar cars={cars} onSearch={handleSearch} />
-        <br /> <br />
         <div className="product-card-container">
           {filteredCars.map((car) => (
             <div key={car.id} onClick={() => handleProductClick(car)}>

@@ -1,58 +1,42 @@
-import React from "react";
 import Image from "next/image";
+import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons";
 
 const ImageSlider = () => {
-  const CustomArrowPrev = ({ onClick }) => (
-    <button className="carouselArrow carouselArrowPrev" onClick={onClick}>
-      <FontAwesomeIcon icon={faChevronLeft} style={{ fontSize: "24px" }} />
-    </button>
-  );
+  // Custom CSS styles for the images
+  const imageStyles = {
+    maxHeight: "100vh", // Set the maximum height for the images
+    // Center the images horizontally
+  };
 
-  const CustomArrowNext = ({ onClick }) => (
-    <button className="carouselArrow carouselArrowNext" onClick={onClick}>
-      <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: "24px" }} />
-    </button>
-  );
   return (
-    <div className="sliderContainer ">
+    <div className=" flex items-center justify-center">
       <Carousel
-        showArrows={true}
+        autoPlay
+        infiniteLoop
+        showStatus={false}
         showThumbs={false}
-        dynamicHeight={true}
-        autoPlay={true}
         interval={3000}
-        transitionMode="fade"
-        renderArrowPrev={(onClickHandler, hasPrev) =>
-          hasPrev && <CustomArrowPrev onClick={onClickHandler} />
-        }
-        renderArrowNext={(onClickHandler, hasNext) =>
-          hasNext && <CustomArrowNext onClick={onClickHandler} />
-        }
+        transitionTime={500}
       >
-        <div key="slide1" className="slideItem">
-          <img src="/car1.avif" className="slideImage" />
+        <div>
+          <img src={"/car1.avif"} alt="Car 1" style={imageStyles} />
         </div>
-        <div key="slide2" className="slideItem">
-          <img src="/car2.avif" className="slideImage" />
+        <div>
+          <img src={"/car2.avif"} alt="Car 2" style={imageStyles} />
         </div>
-        <div key="slide3" className="slideItem">
-          <img src="/car3.avif" className="slideImage" />
+        <div>
+          <img src={"/car3.avif"} alt="Car 3" style={imageStyles} />
         </div>
-        <div key="slide4" className="slideItem">
-          <img src="/car4.avif" className="slideImage" />
+        <div>
+          <img src={"/car4.avif"} alt="Car 3" style={imageStyles} />
         </div>
-        <div key="slide5" className="slideItem">
-          <img src="/car5.avif" className="slideImage" />
+        <div>
+          <img src={"/car5.avif"} alt="Car 3" style={imageStyles} />
         </div>
-        <div key="slide6" className="slideItem">
-          <img src="/car6.jfif" className="slideImage" />
+        <div>
+          <img src={"/car5.jfif"} alt="Car 3" style={imageStyles} />
         </div>
       </Carousel>
     </div>
