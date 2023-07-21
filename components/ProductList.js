@@ -12,10 +12,12 @@ const ProductList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3010/cars");
+        const response = await fetch(
+          "https://grpeazvfm4.execute-api.us-east-1.amazonaws.com/cars/cars"
+        );
         const data = await response.json();
-        setCars(data);
-        setFilteredCars(data); // Set initial filteredCars to all cars
+        setCars(data.cars);
+        setFilteredCars(data.cars); // Set initial filteredCars to all cars
       } catch (error) {
         console.error("Error fetching data:", error);
       }

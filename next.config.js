@@ -10,6 +10,8 @@ const nextConfig = {
       "localhost",
       "example.com",
       "hyundai.com",
+      "jaguar.com",
+      "images.pexels.com",
     ],
   },
 };

@@ -1,234 +1,76 @@
 {
+  "cars":{
   "cars": [
-    {
-      "id": 1,
-      "name": "Toyota Corolla",
-      "modeltype": "SE",
-      "companyname": "Toyota",
-      "description": "The Toyota Corolla SE is a reliable and efficient sedan.",
-      "price": 25000,
-      "image_url": "https://cdn.pixabay.com/photo/2022/11/01/06/24/car-7561378_640.jpg",
-      "email": "sales@toyota.com"
-    },
-    {
-      "id": 3,
-      "name": "Honda Civic",
-      "modeltype": "EX",
-      "companyname": "Honda",
-      "description": "The Honda Civic EX is a stylish and practical compact car.",
-      "price": 27000,
-      "image_url": "https://example.com/honda_civic.jpg",
-      "email": "sales@honda.com"
-    },
-    {
-      "id": 4,
-      "name": "Honda CR-V",
-      "modeltype": "Touring",
-      "companyname": "Honda",
-      "description": "The Honda CR-V Touring is a spacious and feature-rich SUV.",
-      "price": 35000,
-      "image_url": "https://example.com/honda_crv.jpg",
-      "email": "info@honda.com"
-    },
-    {
-      "id": 5,
-      "name": "Ford Mustang",
-      "modeltype": "GT",
-      "companyname": "Ford",
-      "description": "The Ford Mustang GT is a powerful and iconic sports car.",
-      "price": 40000,
-      "image_url": "https://example.com/ford_mustang.jpg",
-      "email": "sales@ford.com"
-    },
-    {
-      "id": 6,
-      "name": "Ford Explorer",
-      "modeltype": "Platinum",
-      "companyname": "Ford",
-      "description": "The Ford Explorer Platinum offers luxury and versatility.",
-      "price": 48000,
-      "image_url": "https://example.com/ford_explorer.jpg",
-      "email": "info@ford.com"
-    },
-    {
-      "id": 7,
-      "name": "Chevrolet Silverado",
-      "modeltype": "LT",
-      "companyname": "Chevrolet",
-      "description": "The Chevrolet Silverado LT is a rugged and reliable pickup truck.",
-      "price": 35000,
-      "image_url": "https://example.com/chevrolet_silverado.jpg",
-      "email": "sales@chevrolet.com"
-    },
-    {
-      "id": 8,
-      "name": "Chevrolet Tahoe",
-      "modeltype": "Premier",
-      "companyname": "Chevrolet",
-      "description": "The Chevrolet Tahoe Premier is a spacious and family-friendly SUV.",
-      "price": 55000,
-      "image_url": "https://example.com/chevrolet_tahoe.jpg",
-      "email": "info@chevrolet.com"
-    },
-    {
-      "id": 9,
-      "name": "Nissan Altima",
-      "modeltype": "SL",
-      "companyname": "Nissan",
-      "description": "The Nissan Altima SL offers a balance of comfort and performance.",
-      "price": 30000,
-      "image_url": "https://example.com/nissan_altima.jpg",
-      "email": "sales@nissan.com"
-    },
-    {
-      "id": 10,
-      "name": "Nissan Rogue",
-      "modeltype": "SV",
-      "companyname": "Nissan",
-      "description": "The Nissan Rogue SV offers spaciousness and advanced features.",
-      "price": 32000,
-      "image_url": "https://example.com/nissan_rogue.jpg",
-      "email": "info@nissan.com"
-    },
-    {
-      "id": 11,
-      "name": "BMW 3 Series",
-      "modeltype": "M340i",
-      "companyname": "BMW",
-      "description": "The BMW 3 Series M340i combines luxury and sportiness.",
-      "price": 50000,
-      "image_url": "https://example.com/bmw_3_series.jpg",
-      "email": "sales@bmw.com"
-    },
-    {
-      "id": 12,
-      "name": "BMW X5",
-      "modeltype": "xDrive40i",
-      "companyname": "BMW",
-      "description": "The BMW X5 xDrive40i offers luxury and capability in an SUV.",
-      "price": 60000,
-      "image_url": "https://example.com/bmw_x5.jpg",
-      "email": "info@bmw.com"
-    },
-    {
-      "id": 13,
-      "name": "Toyota RAV4",
-      "modeltype": "Adventure",
-      "companyname": "Toyota",
-      "description": "The Toyota RAV4 Adventure is a versatile and capable compact SUV.",
-      "price": 32000,
-      "image_url": "https://example.com/toyota_rav4.jpg",
-      "email": "sales@toyota.com"
-    },
-    {
-      "id": 14,
-      "name": "Toyota Highlander",
-      "modeltype": "Limited",
-      "companyname": "Toyota",
-      "description": "The Toyota Highlander Limited offers luxury and comfort for families.",
-      "price": 40000,
-      "image_url": "https://example.com/toyota_highlander.jpg",
-      "email": "info@toyota.com"
-    },
-    {
-      "id": 15,
-      "name": "Honda Accord",
-      "modeltype": "Touring",
-      "companyname": "Honda",
-      "description": "The Honda Accord Touring provides a blend of performance and elegance.",
-      "price": 35000,
-      "image_url": "https://example.com/honda_accord.jpg",
-      "email": "sales@honda.com"
-    },
-    {
-      "id": 16,
-      "name": "Honda Pilot",
-      "modeltype": "Elite",
-      "companyname": "Honda",
-      "description": "The Honda Pilot Elite is a spacious and well-equipped family SUV.",
-      "price": 45000,
-      "image_url": "https://example.com/honda_pilot.jpg",
-      "email": "info@honda.com"
-    },
-    {
-      "id": 17,
-      "name": "Ford F-150",
-      "modeltype": "Lariat",
-      "companyname": "Ford",
-      "description": "The Ford F-150 Lariat is a versatile and powerful pickup truck.",
-      "price": 42000,
-      "image_url": "https://example.com/ford_f150.jpg",
-      "email": "sales@ford.com"
-    },
-    {
-      "id": 18,
-      "name": "Ford Escape",
-      "modeltype": "Titanium",
-      "companyname": "Ford",
-      "description": "The Ford Escape Titanium offers a balance of utility and refinement.",
-      "price": 31000,
-      "image_url": "https://example.com/ford_escape.jpg",
-      "email": "info@ford.com"
-    },
-    {
-      "id": 19,
-      "name": "Chevrolet Equinox",
-      "modeltype": "Premier",
-      "companyname": "Chevrolet",
-      "description": "The Chevrolet Equinox Premier is a compact SUV with premium features.",
-      "price": 34000,
-      "image_url": "https://example.com/chevrolet_equinox.jpg",
-      "email": "sales@chevrolet.com"
-    },
-    {
-      "id": 20,
-      "name": "Chevrolet Traverse",
-      "modeltype": "High Country",
-      "companyname": "Chevrolet",
-      "description": "The Chevrolet Traverse High Country offers comfort and versatility for families.",
-      "price": 48000,
-      "image_url": "https://example.com/chevrolet_traverse.jpg",
-      "email": "info@chevrolet.com"
-    },
-    {
-      "id": 21,
-      "name": "Nissan Sentra",
-      "modeltype": "SR",
-      "companyname": "Nissan",
-      "description": "The Nissan Sentra SR is a sporty and stylish compact sedan.",
-      "price": 26000,
-      "image_url": "https://example.com/nissan_sentra.jpg",
-      "email": "sales@nissan.com"
-    },
-    {
-      "id": 22,
-      "name": "Nissan Titan",
-      "modeltype": "Pro-4X",
-      "companyname": "Nissan",
-      "description": "The Nissan Titan Pro-4X is a capable and rugged full-size pickup truck.",
-      "price": 45000,
-      "image_url": "https://example.com/nissan_titan.jpg",
-      "email": "info@nissan.com"
-    },
-    {
-      "id": 23,
-      "name": "BMW 5 Series",
-      "modeltype": "540i",
-      "companyname": "BMW",
-      "description": "The BMW 5 Series 540i offers a perfect blend of luxury and performance.",
-      "price": 58000,
-      "image_url": "https://stimg.cardekho.com/images/carexteriorimages/360x240/Toyota/Toyota-Corolla-Altis/1555996704094/047.jpg",
-      "email": "sales@bmw.com"
-    },
-    {
-      "name": "ghjkl",
-      "description": "ghjk",
-      "price": "ghji",
-      "companyname": "",
-      "modeltype": "ghjkl",
-      "image_url": "ghj",
-      "company": "ghjio",
-      "id": 27
-    }
+  {
+  "companyname": "Benz",
+  "description": "Develops, manufactures and distributes premium and luxury cars and vans",
+  "email": "mercedes@example.com",
+  "id": 6,
+  "image_url": "https://example.com/Mercedes.jpg",
+  "modeltype": "Mercedes-Benz Group AG",
+  "name": "Mercedes",
+  "price": "8500000"
+  },
+  {
+  "companyname": "Toyoto",
+  "description": "Develops, manufactures and distributes premium and luxury cars and vans",
+  "email": "sachin@example.com",
+  "id": 7,
+  "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carwale.com%2Fmercedes-benz-cars%2F&psig=AOvVaw1I6N-cN_4sUarYvqpnqRp0&ust=1689934489231000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiBp9mGnYADFQAAAAAdAAAAABAE",
+  "modeltype": "Inova Group AG",
+  "name": "Inova",
+  "price": "8500000"
+  },
+  {
+  "companyname": "Range Rover",
+  "description": "Transmission Type: 6-Speed Manual; Drive: Rear Wheel Drive (RWD) Front Axle:",
+  "email": "yogeshprasad17491@gmail.com",
+  "id": 4,
+  "image_url": "https://rangerover.com/velar.jpg",
+  "modeltype": "XUV",
+  "name": "Range Rover Velar",
+  "price": "166400"
+  },
+  {
+  "companyname": "Benz",
+  "description": "Develops, manufactures and distributes premium and luxury cars and vans",
+  "email": "madhanab29@gmail.com",
+  "id": 2,
+  "image_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.carwale.com%2Fmercedes-benz-cars%2F&psig=AOvVaw1I6N-cN_4sUarYvqpnqRp0&ust=1689934489231000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCJiBp9mGnYADFQAAAAAdAAAAABAE",
+  "modeltype": "Mercedes-Benz",
+  "name": "Mercedes",
+  "price": "8500000"
+  },
+  {
+  "companyname": "HYUNDAI",
+  "description": "Transmission Type: 6-Speed Manual; Drive: Rear Wheel Drive (RWD) Front Axle:",
+  "email": "sangamithrajai@gmail.com",
+  "id": 8,
+  "image_url": "https://hyundai.com/thar.jpg",
+  "modeltype": "SUV",
+  "name": "VERNA",
+  "price": "188800"
+  },
+  {
+  "companyname": "Jaguar",
+  "description": "Transmission Type: 10-Speed Manual; Drive: Rear Wheel Drive (RWD) Front Axle:",
+  "email": "noorsiwan00@gmail.com",
+  "id": 5,
+  "image_url": "https://jaguar.com/f-pace.jpg",
+  "modeltype": "Sedan",
+  "name": "Jaguar F-pace",
+  "price": "276400"
+  },
+  {
+  "companyname": "Rollex",
+  "description": "Develops, manufactures and distributes premium and luxury cars and vans",
+  "email": "mercedes@example.com",
+  "id": 9,
+  "image_url": "https://example.com/Mercedes.jpg",
+  "modeltype": "Mercedes-Benz Group AG",
+  "name": "Rollex1",
+  "price": "80000000000"
+  }
   ]
+  }
 }

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const AddProduct = () => {
   const router = useRouter();
-
+  const { data: session } = useSession();
+  const [email, setEmail] = useState(session?.user?.email || "");
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -26,13 +28,16 @@ const AddProduct = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3010/cars", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://grpeazvfm4.execute-api.us-east-1.amazonaws.com/cars/cars",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...formData, email }),
+        }
+      );
 
       if (response.ok) {
         // Clear form data after successful submission
@@ -48,6 +53,14 @@ const AddProduct = () => {
 
         // Show success message in an alert
         window.alert("Product added successfully.");
+
+        const newCar = {
+          ...formData,
+          email,
+        };
+        const responseData = await response.json();
+        newCar.id = responseData.id;
+        setCars((prevCars) => [...prevCars, newCar]);
 
         // Navigate back to the home page after 0.5 seconds
         setTimeout(() => {
@@ -115,8 +128,8 @@ const AddProduct = () => {
           </label>
           <input
             type="text"
-            name="company"
-            value={formData.company}
+            name="companyname"
+            value={formData.companyname}
             onChange={handleChange}
             required
             placeholder="Toyota"
@@ -148,6 +161,20 @@ const AddProduct = () => {
             onChange={handleChange}
             required
             placeholder="asdfghjk3456789#$%^&"
+            className="mt-1 block w-full h-8 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            placeholder="example@example.com"
             className="mt-1 block w-full h-8 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>

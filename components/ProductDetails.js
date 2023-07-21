@@ -1,47 +1,64 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const ProductDetails = ({ car }) => {
   const router = useRouter();
+  const { data: session } = useSession();
+  const user = session?.user;
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
   const [editedCar, setEditedCar] = useState({ ...car });
 
   // Function to handle the delete action
   const handleDelete = async () => {
-    try {
-      const response = await fetch(`http://localhost:3010/cars/${car.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+    // Show a confirmation dialog before proceeding with deletion
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this product?"
+    );
 
-      if (response.ok) {
-        // If the deletion is successful, navigate back to the product list page
-        router.push("/");
-      } else {
-        console.error("Error deleting car:", response.status);
+    if (confirmed) {
+      try {
+        const response = await fetch(
+          `https://grpeazvfm4.execute-api.us-east-1.amazonaws.com/cars/cars/${car.id}/${car.email}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          // If the deletion is successful, navigate back to the product list page
+          router.push("/");
+        } else {
+          console.error("Error deleting car:", response.status);
+        }
+      } catch (error) {
+        console.error("Error deleting car:", error);
       }
-    } catch (error) {
-      console.error("Error deleting car:", error);
     }
   };
 
   // Function to handle the edit action
   const handleEdit = async () => {
     try {
-      const response = await fetch(`http://localhost:3010/cars/${car.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(editedCar),
-      });
+      const response = await fetch(
+        `https://grpeazvfm4.execute-api.us-east-1.amazonaws.com/cars/cars/${car.id}/${car.email}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editedCar),
+        }
+      );
 
       if (response.ok) {
-        // If the edit is successful, navigate back to the product list page
+        // If the edit is successful, show an alert and navigate back to the product list page
+        window.alert("Data updated successfully!");
         router.push("/");
       } else {
         console.error("Error editing car:", response.status);
@@ -50,7 +67,6 @@ const ProductDetails = ({ car }) => {
       console.error("Error editing car:", error);
     }
   };
-
   // Function to show the delete confirmation modal
   const handleShowConfirmation = () => {
     setShowConfirmation(true);
@@ -71,7 +87,6 @@ const ProductDetails = ({ car }) => {
     setShowEditForm(false);
     setEditedCar({ ...car });
   };
-
   return (
     <div className="w-1/2 content-center">
       <h2>Product Details</h2>
@@ -83,24 +98,27 @@ const ProductDetails = ({ car }) => {
         <p>Company: {car.companyname}</p>
         <p>Model: {car.modeltype}</p>
       </div>
-      <div>
-        <button
-          type="button"
-          className="inline-flex m-2 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          onClick={handleShowConfirmation}
-        >
-          Delete
-        </button>
-        <button
-          type="button"
-          className="inline-flex m-2 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300"
-          onClick={handleShowEditForm}
-        >
-          Edit
-        </button>
-      </div>
+      {session?.user?.email === car.email ? (
+        <div>
+          <button
+            type="button"
+            className="inline-flex m-2 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            onClick={handleShowConfirmation}
+          >
+            Delete
+          </button>
+          <button
+            type="button"
+            className="inline-flex m-2 justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-300"
+            onClick={handleShowEditForm}
+          >
+            Edit
+          </button>
+        </div>
+      ) : (
+        <div>Nothing</div>
+      )}
 
-      {/* Delete Confirmation Modal */}
       {showConfirmation && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-75 bg-gray-500">
           <div className="bg-white p-6 rounded-lg">
@@ -127,7 +145,6 @@ const ProductDetails = ({ car }) => {
           </div>
         </div>
       )}
-
       {/* Edit Form */}
       {showEditForm && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-opacity-75 ">
